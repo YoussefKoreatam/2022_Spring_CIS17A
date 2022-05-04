@@ -14,7 +14,7 @@ int main() {
 	int choice, // user menu choice
 		answer, // user answer attempt
 		correctAns; // Correct answer
-	string correct = "That's correct!", incorrect = "Incorrect answer. The correct answe is";
+	string correct = "That's correct!", incorrect = "Incorrect answer. The correct answer is";
 	do {
 		// outputting a menu and asking for a menu choice
 		cout << "Please select from the following menu..." << endl
