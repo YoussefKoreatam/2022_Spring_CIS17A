@@ -4,23 +4,51 @@
 #include <cstdlib>
 using namespace std; // using the standard identifier namespace
 
-int mainMenu(){
-	cout << "Please select from the following menu..." << endl
-		<< "1) Addition" << endl << "2) Subtraction" << endl <<
-		"3) Quit" << endl;
-	int choice;
-	cin >> choice;
-	return choice;
-}
 
 int main() {
 	srand(time(0));
-
+	// Defining the range values of the random generator
+	const int MAX = 10, MIN = 0;
 	cout << "Welcome to the Math Tutor Program!" << endl;
-	int userChoice = mainMenu();
-	do{
-	
-	}while(userChoice != 3)
+	int choice, // user menu choice
+		answer, // user answer attempt
+		correctAns; // Correct answer
+	do {
+		// outputting a menu and asking for a menu choice
+		cout << "Please select from the following menu..." << endl
+			<< "1) Addition" << endl << "2) Subtraction" << endl <<
+			"3) Quit" << endl << "enter a choice between 1 - 3: ";
+		cin >> choice;
+		// looping until a user enters a valid choice number
+		while (choice > 3 || choice < 1) {
+			cout << "Invalid Selection, please choose a number between 1 - 3: ";
+			cin >> choice;
+		}
+		// generating random numbers
+		int num1 = rand() % (MAX - MIN + 1) + MIN;
+		int num2 = rand() % (MAX - MIN + 1) + MIN;
+		// addition condition
+		if (choice == 1) {
+			cout << "What is " << num1 << " + " << num2 << "? " << endl << "answer: ";
+			cin >> answer;
+			correctAns = num1 + num2;
+			if (answer != correctAns) {
+				cout << "Incorrect answer. The correct answe is " << correctAns << endl;
+			}else
+				cout << "That's correct!" << endl;
+		}
+		else if (choice == 2) {
+			cout << "What is " << num1 << " - " << num2 << "? " << endl << "answer: ";
+			cin >> answer;
+			correctAns = num1 - num2;
+			if (answer != correctAns) {
+				cout << "Incorrect answer. The correct answe is " << correctAns << endl;
+			}else
+				cout << "That's correct!" << endl;
+		}
+		else
+			cout << "Thanks for using The Math Tutor Program!" << endl;
+	} while (choice != 3);
 
 
 	system("pause");
