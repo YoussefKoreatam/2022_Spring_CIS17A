@@ -2,6 +2,7 @@
 #include <iostream> // Library that includes input and output functions
 #include <ctime>
 #include <cstdlib>
+#include <string>
 using namespace std; // using the standard identifier namespace
 
 
@@ -13,6 +14,7 @@ int main() {
 	int choice, // user menu choice
 		answer, // user answer attempt
 		correctAns; // Correct answer
+	string correct = "That's correct!", incorrect = "Incorrect answer. The correct answe is";
 	do {
 		// outputting a menu and asking for a menu choice
 		cout << "Please select from the following menu..." << endl
@@ -30,21 +32,21 @@ int main() {
 		// addition condition
 		if (choice == 1) {
 			cout << "What is " << num1 << " + " << num2 << "? " << endl << "answer: ";
-			cin >> answer;
-			correctAns = num1 + num2;
-			if (answer != correctAns) {
-				cout << "Incorrect answer. The correct answe is " << correctAns << endl;
+			cin >> answer; // take an answer from a user
+			correctAns = num1 + num2; // check answer
+			if (answer != correctAns) { // check if an answer is correct
+				cout << incorrect << correctAns << endl;
 			}else
-				cout << "That's correct!" << endl;
-		}
+				cout << correct << endl;
+		} // Subtraction condition
 		else if (choice == 2) {
 			cout << "What is " << num1 << " - " << num2 << "? " << endl << "answer: ";
-			cin >> answer;
-			correctAns = num1 - num2;
-			if (answer != correctAns) {
-				cout << "Incorrect answer. The correct answe is " << correctAns << endl;
+			cin >> answer; // take an answer from a user
+			correctAns = num1 - num2; // correct answer
+			if (answer != correctAns) { // check if the answer is correct
+				cout << incorrect << correctAns << endl;
 			}else
-				cout << "That's correct!" << endl;
+				cout << correct << endl;
 		}
 		else
 			cout << "Thanks for using The Math Tutor Program!" << endl;
